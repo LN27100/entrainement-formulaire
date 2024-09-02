@@ -1,15 +1,25 @@
 <template>
   <div class="FormIn">
     <h1>Formulaire d'inscription</h1>
+    <mon-formulaire></mon-formulaire>
   </div>
 </template>
 
 <script>
+import MonFormulaire from '@/components/MonFormulaire.vue'
+
 export default {
-  name: 'FormulaireTest'
+  name: 'FormulaireTest',
+  components: {
+    MonFormulaire
+  }
 }
 </script>
 
 <style>
-/* Styles CSS */
+.FormIn {
+  width: 30rem;
+  margin: auto;
+  padding: 1em;
+}
 </style>
