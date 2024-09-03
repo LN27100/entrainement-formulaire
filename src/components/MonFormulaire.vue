@@ -60,25 +60,15 @@
         <input type="text" id="city" v-model="city" required />
       </div>
 
-      <div class="form-groupCheck">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-        <label class="form-check-label" for="flexCheckDefault">
-          Suspendu
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-        <label class="form-check-label" for="flexCheckChecked">
-          A susprendre
-        </label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
-        <label class="form-check-label" for="flexCheckChecked">
-          Mensualisé
-        </label>
-      </div>
+      <div class="checkbox-group">
+        <input type="checkbox" id="suspendu" name="status">
+        <label for="suspendu">Suspendu</label>
+
+        <input type="checkbox" id="a-suspendre" name="status">
+        <label for="a-suspendre">A suspendre</label>
+
+        <input type="checkbox" id="mensualite" name="status">
+        <label for="mensualite">Mensualité</label>
     </div>
 
       <div class="form-group">
@@ -106,7 +96,9 @@
       </div>
 
       <!-- Bouton pour soumettre le formulaire -->
+      <div class="formButton">
       <button type="submit">S'inscrire</button>
+      </div>
     </form>
   </div>
 </template>
@@ -172,6 +164,8 @@ export default {
     }
   },
   props: {
+  // Définition des propriétés (props) que ce composant accepte
+    // Valeur par défaut si aucune valeur n'est fournie lors de l'utilisation du composant
     mesClasses: { type: String, default: 'class1' }
   }
 }
@@ -179,11 +173,23 @@ export default {
 
 <style scoped>
 .form-group {
-  margin-bottom: 1em;
+  margin-bottom: 1rem;
 }
 
-.form-groupCheck {
-  margin-bottom: 1em;
+.checkbox-group {
+    display: flex;
+    margin-bottom: 1rem;
+    flex-wrap: nowrap; /* Assure que les éléments ne se déplacent pas sur une nouvelle ligne */
+}
+
+.checkbox-group label {
+    white-space: nowrap; /* Empêche le texte des labels de se briser sur plusieurs lignes */
+}
+
+input[type=checkbox], input[type=radio] {
+    padding: 0;
+    width: min-content;
+    margin-right: 0.5rem;
 }
 
 </style>
