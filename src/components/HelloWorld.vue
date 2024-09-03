@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      Dans la page Formulaire, créer un formulaire complet d'inscription.
+      Dans la page Inscription, vous trouverez le formulaire à remplir.
     </p>
     <ul>
       <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
