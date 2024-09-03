@@ -3,27 +3,35 @@
 
   .class1 {
     margin: auto;
-    background-color: #f9f9f9;
+    background-color: #d5f3c8;
     border-radius: 5px;
     padding: 1rem;
     width: 100%; 
+  }
+
+  option {
+    color:#2c3e50;
+  }
+
+  select {
+    color: #2c3e50;
+    font-size: 0.8rem;
+    height: 1rem;
   }
 
   label {
     margin-bottom: 0.5em;
     font-size: 0.8rem;
     display: flexbox;
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 
   }
 
   input {
     border: 1px solid #cccccc;
-    padding: 0.5em;
-    font-size: 1em;
-    width: 60%;
+    padding: 0.5rem;
+    font-size: 0.8rem;
     height: 1rem;
-    box-sizing: border-box;
   }
 
   .formButton {

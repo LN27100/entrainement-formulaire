@@ -4,35 +4,87 @@
     <!-- @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire et appelle la méthode handleSubmit -->
     <form @submit.prevent="handleSubmit">
 
-      <div class="form-group">
+      <div class="groupOne">
+      <div class="form-groupOne">
         <label for="civility">Civilité</label>
         <!-- v-model lie la sélection à la donnée civility -->
         <select id="civility" v-model="civility" required>
-          <!-- Option par défaut, désactivée, invitant l'utilisateur à choisir une option -->
-          <option disabled value="">Choisissez une civilité</option>
           <option value="M">Monsieur</option>
           <option value="Mme">Madame</option>
         </select>
       </div>
 
-      <div class="form-group">
+      <div class="form-groupOne">
         <label for="name">Nom</label>
-        <!-- v-model lie l'entrée à la donnée name -->
-        <input type="text" id="name" v-model="name" required />
+        <input class="one" type="text" id="name" v-model="name" required />
       </div>
 
-      <div class="form-group">
-        <label for="firtName">Prénom</label>
-        <!-- v-model lie l'entrée à la donnée firstName -->
-        <input type="text" id="firstName" v-model="firstName" required />
+      <div class="form-groupOne">
+        <label for="nameBirth">Nom de naissance</label>
+        <input class="one" type="text" id="nameBirth" v-model="nameBirth" required />
       </div>
+
+      <div class="form-groupOne">
+        <label for="firtName">Prénom</label>
+        <input class="one" type="text" id="firstName" v-model="firstName" required />
+      </div>
+
+    </div>
+
+    <div class="groupOne">
+      <div class="form-groupOne">
+        <label for="birthdate">Date de naissance</label>
+        <input type="date" id="birthdate" v-model="birthdate" required />
+      </div>
+
+      <div class="form-groupOne">
+        <label for="depNumber">Lieu de naissance (dpt et ville)</label>
+        <input type="text" id="depNumber" v-model="depNumber" required />
+        <input type="text" class="one" id="cityBirth" v-model="cityBirth" required />
+      </div>
+
+      <div class="form-groupOne">
+        <label for="job">Profession</label>
+        <select id="job" v-model="situation" required>
+          <option value="Fonctionnaire">Fonctionnaire</option>
+          <option value="Policier">Policier</option>
+          <option value="Pompier">Pompier</option>
+          <option value="Travailleur social">Travailleur social</option>
+          <option value="Cadre">Cadre</option>
+          <option value="Employé">Employé</option>
+          <option value="Technicien">Technicien</option>
+          <option value="Ouvrier">Ouvrier</option>
+          <option value="Entrepreneur">Entrepreneur</option>
+          <option value="Freelance">Freelance</option>
+          <option value="Artisan">Artisan</option>
+          <option value="Médecin">Médecin</option>
+          <option value="Infirmier">Infirmier</option>
+          <option value="Pharmacien">Pharmacien</option>
+          <option value="Thérapeuthe">Thérapeuthe</option>
+          <option value="Enseignant">Enseignant</option>
+          <option value="Educateur">Educateur</option>
+          <option value="Développeur">Développeur</option>
+          <option value="Ingénieur en informatique">Ingénieur en informatique</option>
+          <option value="Analyste">Analyste</option>
+          <option value="Technicien informatique">Technicien informatique</option>
+          <option value="Assistant administratif">Assistant administratif</option>
+          <option value="Technicien de maintenance">Technicien de maintenance</option>
+          <option value="Journaliste">Journaliste</option>
+          <option value="Vendeur">Vendeur</option>
+          <option value="Artiste">Artiste</option>
+          <option value="Serveur">Serveur</option>
+          <option value="Coiffeur">Coiffeur</option>
+          <option value="Etudiant">Etudiant</option>
+          <option value="Retraité">Retraité</option>
+          <option value="Sans profession">Sans profession</option>
+          <option value="Chômeur">Chômeur</option>
+        </select>
+      </div>
+    </div>
 
       <div class="form-group">
         <label for="situation">Situation familiale</label>
-        <!-- v-model lie la sélection à la donnée situation -->
         <select id="situation" v-model="situation" required>
-          <!-- Option par défaut, désactivée, invitant l'utilisateur à choisir une option -->
-          <option disabled value="">Choisissez une situation</option>
           <option value="célibataire">Célibataire</option>
           <option value="concubinage">Concubinage</option>
           <option value="pacs">Pacsé</option>
@@ -43,20 +95,7 @@
       </div>
 
       <div class="form-group">
-        <label for="birthdate">Date de naissance</label>
-        <!-- v-model lie l'entrée à la donnée birthdate -->
-        <input type="date" id="birthdate" v-model="birthdate" required />
-      </div>
-
-      <div class="form-group">
-        <label for="cityBirth">lieu de naissance</label>
-        <!-- v-model lie l'entrée à la donnée city -->
-        <input type="text" id="cityBirth" v-model="cityBirth" required />
-      </div>
-
-      <div class="form-group">
         <label for="city">Secteur</label>
-        <!-- v-model lie l'entrée à la donnée city -->
         <input type="text" id="city" v-model="city" required />
       </div>
 
@@ -73,25 +112,21 @@
 
       <div class="form-group">
         <label for="phone">Numéro de téléphone</label>
-        <!-- v-model lie l'entrée à la donnée phoneMobile -->
         <input type="tel" id="phone" v-model="phone" required />
       </div>
 
       <div class="form-group">
         <label for="email">Email</label>
-        <!-- v-model lie l'entrée à la donnée email -->
         <input type="email" id="email" v-model="email" required />
       </div>
 
       <div class="form-group">
         <label for="password">Mot de passe</label>
-        <!-- v-model lie l'entrée à la donnée password -->
         <input type="password" id="password" v-model="password" required />
       </div>
 
       <div class="form-group">
         <label for="confirmPassword">Confirmer le mot de passe</label>
-        <!-- v-model lie l'entrée à la donnée confirmPassword -->
         <input type="password" id="confirmPassword" v-model="confirmPassword" required />
       </div>
 
@@ -172,8 +207,27 @@ export default {
 </script>
 
 <style scoped>
-.form-group {
+.form-groupOne {
+  display: flex;
   margin-bottom: 1rem;
+  margin-right: 1rem;
+}
+
+.one {
+  width: 10rem;
+}
+
+#civility {
+  width: 5rem;
+  height: 1rem;
+}
+
+.groupOne {
+  display: flex;
+}
+
+#depNumber {
+  width: 3rem;
 }
 
 .checkbox-group {
@@ -187,11 +241,15 @@ export default {
 }
 
 input[type=checkbox], input[type=radio] {
-    padding: 0;
     width: min-content;
     margin-right: 0.5rem;
 }
 
+#birthdate {
+  color: #2c3e50;
+  font-size: 0.8rem;
+  width: 7rem;
+  }
 </style>
 
 <!-- LEXIQUE -->
