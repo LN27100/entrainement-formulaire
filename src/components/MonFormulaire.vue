@@ -49,39 +49,42 @@
       </div>
 
       <div class="form-group">
-        <label for="streetNumber">Numéro de rue</label>
-        <!-- v-model lie l'entrée à la donnée streetNumber -->
-        <input type="text" id="streetNumber" v-model="streetNumber" required />
+        <label for="cityBirth">lieu de naissance</label>
+        <!-- v-model lie l'entrée à la donnée city -->
+        <input type="text" id="cityBirth" v-model="cityBirth" required />
       </div>
 
       <div class="form-group">
-        <label for="streetName">Nom de rue</label>
-        <!-- v-model lie l'entrée à la donnée streetName -->
-        <input type="text" id="streetName" v-model="streetName" required />
-      </div>
-
-      <div class="form-group">
-        <label for="postalCode">Code postal</label>
-        <!-- v-model lie l'entrée à la donnée postalCode -->
-        <input type="text" id="postalCode" v-model="postalCode" required />
-      </div>
-
-      <div class="form-group">
-        <label for="city">Ville</label>
+        <label for="city">Secteur</label>
         <!-- v-model lie l'entrée à la donnée city -->
         <input type="text" id="city" v-model="city" required />
       </div>
 
-      <div class="form-group">
-        <label for="phoneMobile">Numéro de téléphone portable</label>
-        <!-- v-model lie l'entrée à la donnée phoneMobile -->
-        <input type="tel" id="phoneMobile" v-model="phoneMobile" required />
+      <div class="form-groupCheck">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Suspendu
+        </label>
       </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label" for="flexCheckChecked">
+          A susprendre
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+        <label class="form-check-label" for="flexCheckChecked">
+          Mensualisé
+        </label>
+      </div>
+    </div>
 
       <div class="form-group">
-        <label for="phoneFixed">Numéro de téléphone fixe</label>
-        <!-- v-model lie l'entrée à la donnée phoneFixed -->
-        <input type="tel" id="phoneFixed" v-model="phoneFixed" required />
+        <label for="phone">Numéro de téléphone</label>
+        <!-- v-model lie l'entrée à la donnée phoneMobile -->
+        <input type="tel" id="phone" v-model="phone" required />
       </div>
 
       <div class="form-group">
@@ -112,31 +115,60 @@
 export default {
   name: 'MonFormulaire', // Nom du composant
   data () {
-    // Fonction qui retourne un objet contenant les données de l'état du composant
+  // Fonction qui retourne un objet contenant les données de l'état du composant
     return {
-      name: '', // Champ de saisie pour le nom
-      email: '', // Champ de saisie pour l'email
-      password: '' // Champ de saisie pour le mot de passe
+      civility: '',
+      name: '',
+      firstName: '',
+      situation: '',
+      birthdate: '',
+      cityBirth: '',
+      city: '',
+      suspendu: false,
+      aSuspendre: false,
+      mensualise: false,
+      phone: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
     }
   },
   methods: {
-    // Objet qui contient les méthodes du composant
+  // Objet qui contient les méthodes du composant
     handleSubmit () {
-      // Fonction appelée lors de la soumission du formulaire
+    // Fonction appelée lors de la soumission du formulaire
 
-      // Affiche le nom dans la console
+      // Affiche toutes les données du formulaire dans la console
+      console.log('Civilité:', this.civility)
       console.log('Nom:', this.name)
-      // Affiche l'email dans la console
+      console.log('Prénom:', this.firstName)
+      console.log('Situation familiale:', this.situation)
+      console.log('Date de naissance:', this.birthdate)
+      console.log('Lieu de naissance:', this.cityBirth)
+      console.log('Secteur:', this.city)
+      console.log('Suspendu:', this.suspendu)
+      console.log('À suspendre:', this.aSuspendre)
+      console.log('Mensualisé:', this.mensualise)
+      console.log('Numéro de téléphone:', this.phone)
       console.log('Email:', this.email)
-      // Affiche le mot de passe dans la console
       console.log('Mot de passe:', this.password)
+      console.log('Confirmer le mot de passe:', this.confirmPassword)
 
-      // Réinitialise le champ de saisie du nom
+      // Réinitialisation des champs du formulaire
+      this.civility = ''
       this.name = ''
-      // Réinitialise le champ de saisie de l'email
+      this.firstName = ''
+      this.situation = ''
+      this.birthdate = ''
+      this.cityBirth = ''
+      this.city = ''
+      this.suspendu = false
+      this.aSuspendre = false
+      this.mensualise = false
+      this.phone = ''
       this.email = ''
-      // Réinitialise le champ de saisie du mot de passe
       this.password = ''
+      this.confirmPassword = ''
     }
   },
   props: {
@@ -146,38 +178,14 @@ export default {
 </script>
 
 <style scoped>
-
 .form-group {
   margin-bottom: 1em;
 }
 
-label {
-  margin-bottom: 0.5em;
-  color: #333333;
-  display: block;
+.form-groupCheck {
+  margin-bottom: 1em;
 }
 
-input {
-  border: 1px solid #cccccc;
-  padding: 0.5em;
-  font-size: 1em;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-button {
-  padding: 0.7em;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1em;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
 </style>
 
 <!-- LEXIQUE -->
