@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="logo" src="../assets/logo.jpg">
-    <HelloWorld msg="Entrainement formulaire"/>
+    <HelloWorld msg="Entrainement formulaire Vue.js"/>
   </div>
 </template>
 
