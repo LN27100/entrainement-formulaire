@@ -21,10 +21,16 @@
   }
 
   label {
-    margin-bottom: 0.5em;
     font-size: 0.8rem;
     margin-right: 0.5rem;
+    margin-left: 0.5rem;
+    color: #2c3e50;
+  }
 
+  p {
+    font-size: 0.8rem; 
+    color: #2c3e50;
+    margin-top: 1rem;;
   }
 
   input {
@@ -33,6 +39,49 @@
     font-size: 0.8rem;
     height: 1rem;
   }
+
+  input[type="date"] {
+    color: #646a70;
+    font-size: 0.8rem;
+    width: 7rem;
+    }
+    
+  .form-groupOne {
+    display: flex;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    align-items: center;
+  
+  }
+  
+  .one {
+    width: 10rem;
+  }
+
+  .two {
+    width: 3.5rem;
+    margin-right: 0.2rem;
+  }
+
+  .groupOne {
+    display: flex;
+  }
+  
+  .checkbox-group {
+    justify-content: center;
+    display: flex;
+      margin-bottom: 1rem;
+      flex-wrap: nowrap; /* Assure que les éléments ne se déplacent pas sur une nouvelle ligne */
+  }
+  
+  .checkbox-group label {
+      white-space: nowrap; /* Empêche le texte des labels de se briser sur plusieurs lignes */
+  }
+
+  input[type=checkbox], input[type=radio] {
+    width: min-content;
+    margin-right: 0.5rem;
+}
 
   .formButton {
     text-align: center;

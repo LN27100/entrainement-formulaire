@@ -39,7 +39,7 @@
 
       <div class="form-groupOne">
         <label for="depNumber">Lieu de naissance (dpt et ville)</label>
-        <input type="number" id="depNumber" v-model="depNumber" required min="1" max="100" step="1" @input="validateNumber" />
+        <input type="number" class="two" id="depNumber" v-model="depNumber" required min="1" max="100" step="1" @input="validateNumber" />
         <input type="text" class="one" id="cityBirth" v-model="cityBirth" required />
       </div>
 
@@ -84,6 +84,8 @@
   </div>
 
   <div :class="mesClasses">
+    <div class="form-groupOne">
+
       <div class="form-group">
         <label for="situation">Situation familiale</label>
         <select id="situation" v-model="situation" required>
@@ -95,6 +97,15 @@
           <option value="Veuf">Veuf(e)</option>
         </select>
       </div>
+
+      <div class="form-groupOne">
+        <label for="children">Nombre d'enfants</label>
+        <input type="number" class="two" id="children" v-model="children" required />
+        <p>(à charge, mineurs)</p>
+      </div>
+    </div>
+
+    <div class="form-groupOne">
 
       <div class="form-group">
         <label for="city">Secteur</label>
@@ -111,6 +122,9 @@
         <input type="checkbox" id="mensualite" v-model="mensualise" @change="uncheckOthers('mensualise')">
         <label for="mensualisé">Mensualisé</label>
     </div>
+  </div>
+
+  <div class="form-groupOne">
 
       <div class="form-group">
         <label for="phone">Numéro de téléphone</label>
@@ -121,16 +135,20 @@
         <label for="email">Email</label>
         <input type="email" id="email" v-model="email" required />
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="password">Mot de passe</label>
-        <input type="password" id="password" v-model="password" required />
+      <div class="form-groupOne">
+
+      <div class="form-groupOne">
+        <label for="arrival">Date d'arrivée</label>
+        <input type="date" id="arrival" v-model="arrival" required />
       </div>
 
-      <div class="form-group">
-        <label for="confirmPassword">Confirmer le mot de passe</label>
-        <input type="password" id="confirmPassword" v-model="confirmPassword" required />
+      <div class="form-groupOne">
+        <label for="departure">Date de départ</label>
+        <input type="date" id="departure" v-model="departure" required />
       </div>
+    </div>
 
       <!-- Bouton pour soumettre le formulaire -->
       <div class="formButton">
@@ -219,52 +237,14 @@ export default {
 </script>
 
 <style scoped>
-.form-groupOne {
-  display: flex;
-  margin-bottom: 1rem;
-  margin-right: 1rem;
-  align-items: center;
-
-}
-
-.one {
-  width: 10rem;
-}
 
 #civility {
   width: 5rem;
   height: 1rem;
 }
 
-.groupOne {
-  display: flex;
-}
-
-#depNumber {
-  width: 3.5rem;
-  margin-right: 0.2rem;
-}
-
-.checkbox-group {
-  justify-content: center;
-  display: flex;
-    margin-bottom: 1rem;
-    flex-wrap: nowrap; /* Assure que les éléments ne se déplacent pas sur une nouvelle ligne */
-}
-
-.checkbox-group label {
-    white-space: nowrap; /* Empêche le texte des labels de se briser sur plusieurs lignes */
-}
-
-input[type=checkbox], input[type=radio] {
-    width: min-content;
-    margin-right: 0.5rem;
-}
-
-#birthdate {
-  color: #2c3e50;
-  font-size: 0.8rem;
-  width: 7rem;
+  div:nth-child(2) > div.form-groupOne > div.form-groupOne {
+    margin-left: 1rem;
   }
 </style>
 
