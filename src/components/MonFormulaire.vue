@@ -1,8 +1,8 @@
 <template>
   <!-- Conteneur principal pour le formulaire -->
-  <div :class="mesClasses">
     <!-- @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire et appelle la méthode handleSubmit -->
     <form @submit.prevent="handleSubmit">
+      <div :class="mesClasses">
 
       <div class="groupOne">
       <div class="form-groupOne">
@@ -39,13 +39,13 @@
 
       <div class="form-groupOne">
         <label for="depNumber">Lieu de naissance (dpt et ville)</label>
-        <input type="text" id="depNumber" v-model="depNumber" required />
+        <input type="number" id="depNumber" v-model="depNumber" required min="1" max="100" step="1" @input="validateNumber" />
         <input type="text" class="one" id="cityBirth" v-model="cityBirth" required />
       </div>
 
       <div class="form-groupOne">
         <label for="job">Profession</label>
-        <select id="job" v-model="situation" required>
+        <select id="job" v-model="job" required>
           <option value="Fonctionnaire">Fonctionnaire</option>
           <option value="Policier">Policier</option>
           <option value="Pompier">Pompier</option>
@@ -81,16 +81,18 @@
         </select>
       </div>
     </div>
+  </div>
 
+  <div :class="mesClasses">
       <div class="form-group">
         <label for="situation">Situation familiale</label>
         <select id="situation" v-model="situation" required>
           <option value="célibataire">Célibataire</option>
           <option value="concubinage">Concubinage</option>
-          <option value="pacs">Pacsé</option>
-          <option value="marié">Marié</option>
-          <option value="Divorcé">Divorcé</option>
-          <option value="Veuf">Veuf</option>
+          <option value="pacs">Pacsé(e)</option>
+          <option value="marié">Marié(e)</option>
+          <option value="Divorcé">Divorcé(e)</option>
+          <option value="Veuf">Veuf(e)</option>
         </select>
       </div>
 
@@ -100,14 +102,14 @@
       </div>
 
       <div class="checkbox-group">
-        <input type="checkbox" id="suspendu" name="status">
+        <input type="checkbox" id="suspendu" v-model="suspendu" @change="uncheckOthers('suspendu')"> <!-- écouteur d'événements qui déclenche la méthode uncheckOthers chaque fois que la case est cochée ou décochée -->
         <label for="suspendu">Suspendu</label>
 
-        <input type="checkbox" id="a-suspendre" name="status">
+        <input type="checkbox" id="a-suspendre" v-model="aSuspendre" @change="uncheckOthers('aSuspendre')">
         <label for="a-suspendre">A suspendre</label>
 
-        <input type="checkbox" id="mensualite" name="status">
-        <label for="mensualite">Mensualité</label>
+        <input type="checkbox" id="mensualite" v-model="mensualise" @change="uncheckOthers('mensualise')">
+        <label for="mensualisé">Mensualisé</label>
     </div>
 
       <div class="form-group">
@@ -134,21 +136,23 @@
       <div class="formButton">
       <button type="submit">S'inscrire</button>
       </div>
+    </div>
+
     </form>
-  </div>
 </template>
 
 <script>
 export default {
   name: 'MonFormulaire', // Nom du composant
   data () {
-  // Fonction qui retourne un objet contenant les données de l'état du composant
+    // Fonction qui retourne un objet contenant les données de l'état du composant
     return {
       civility: '',
       name: '',
       firstName: '',
       situation: '',
       birthdate: '',
+      depNumber: null, // Stocke la valeur du champ 'depNumber'
       cityBirth: '',
       city: '',
       suspendu: false,
@@ -161,25 +165,12 @@ export default {
     }
   },
   methods: {
-  // Objet qui contient les méthodes du composant
+    // Objet qui contient les méthodes du composant
     handleSubmit () {
-    // Fonction appelée lors de la soumission du formulaire
-
-      // Affiche toutes les données du formulaire dans la console
-      console.log('Civilité:', this.civility)
+      // Fonction appelée lors de la soumission du formulaire
+      // Affiche des données du formulaire dans la console
       console.log('Nom:', this.name)
-      console.log('Prénom:', this.firstName)
-      console.log('Situation familiale:', this.situation)
-      console.log('Date de naissance:', this.birthdate)
-      console.log('Lieu de naissance:', this.cityBirth)
-      console.log('Secteur:', this.city)
-      console.log('Suspendu:', this.suspendu)
-      console.log('À suspendre:', this.aSuspendre)
-      console.log('Mensualisé:', this.mensualise)
-      console.log('Numéro de téléphone:', this.phone)
       console.log('Email:', this.email)
-      console.log('Mot de passe:', this.password)
-      console.log('Confirmer le mot de passe:', this.confirmPassword)
 
       // Réinitialisation des champs du formulaire
       this.civility = ''
@@ -196,11 +187,32 @@ export default {
       this.email = ''
       this.password = ''
       this.confirmPassword = ''
+    },
+    // Méthode qui gère le comportement exclusif des cases à cocher
+    uncheckOthers (checkedCheckbox) {
+      // Si la case cochée est ...
+      if (checkedCheckbox === 'suspendu') {
+        this.aSuspendre = false // Décoche la case 'À suspendre'
+        this.mensualise = false // Décoche la case 'Mensualité'
+      } else if (checkedCheckbox === 'aSuspendre') {
+        this.suspendu = false // Décoche la case 'Suspendu'
+        this.mensualise = false // Décoche la case 'Mensualité'
+      } else if (checkedCheckbox === 'mensualise') {
+        this.suspendu = false // Décoche la case 'Suspendu'
+        this.aSuspendre = false // Décoche la case 'À suspendre'
+      }
+    }
+  },
+  // Valide que la valeur entrée est bien comprise entre 1 et 100
+  validateNumber () {
+    if (this.depNumber < 1) {
+      this.depNumber = 1 // Fixe la valeur minimale à 1 si l'utilisateur entre un chiffre en dessous
+    } else if (this.depNumber > 100) {
+      this.depNumber = 100 // Fixe la valeur maximale à 100 si l'utilisateur entre un chiffre au-dessus
     }
   },
   props: {
-  // Définition des propriétés (props) que ce composant accepte
-    // Valeur par défaut si aucune valeur n'est fournie lors de l'utilisation du composant
+    // Définition des propriétés (props) que ce composant accepte
     mesClasses: { type: String, default: 'class1' }
   }
 }
@@ -211,6 +223,8 @@ export default {
   display: flex;
   margin-bottom: 1rem;
   margin-right: 1rem;
+  align-items: center;
+
 }
 
 .one {
@@ -227,11 +241,13 @@ export default {
 }
 
 #depNumber {
-  width: 3rem;
+  width: 3.5rem;
+  margin-right: 0.2rem;
 }
 
 .checkbox-group {
-    display: flex;
+  justify-content: center;
+  display: flex;
     margin-bottom: 1rem;
     flex-wrap: nowrap; /* Assure que les éléments ne se déplacent pas sur une nouvelle ligne */
 }
