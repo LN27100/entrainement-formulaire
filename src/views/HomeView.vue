@@ -16,3 +16,11 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+img {
+  margin: 0 auto; /* permet de centrer l'image */
+  display: block;
+  margin-bottom: 20px;
+}
+</style>
