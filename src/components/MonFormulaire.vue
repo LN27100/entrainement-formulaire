@@ -1,153 +1,120 @@
 <template>
   <!-- Conteneur principal pour le formulaire -->
-    <!-- @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire et appelle la méthode handleSubmit -->
-    <form @submit.prevent="handleSubmit">
-      <div :class="mesClasses">
+  <!-- @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire et appelle la méthode handleSubmit -->
+  <form @submit.prevent="handleSubmit">
+    <div :class="mesClasses">
 
-      <div class="groupOne">
       <div class="form-groupOne">
-        <label for="civility">Civilité</label>
-        <!-- v-model lie la sélection à la donnée civility -->
-        <select id="civility" v-model="civility" required>
-          <option value="M">Monsieur</option>
-          <option value="Mme">Madame</option>
-        </select>
+        <div class="form-groupOne">
+          <label for="civility">Civilité</label>
+          <!-- v-model lie la sélection à la donnée civility -->
+          <select class="two" id="civility" v-model="civility" required>
+            <option value="M">Monsieur</option>
+            <option value="Mme">Madame</option>
+          </select>
+        </div>
+
+          <!-- Composant qui encapsule le champ de formulaire avec son label et intègre ttes les props -->
+          <AllLabel id="name" label="Nom" v-model="name" :required="true" />
+          <AllLabel id="nameBirth" label="Nom de naissance" v-model="nameBirth" :required="true" />
+          <AllLabel id="firstName" label="Prénom" v-model="firstName" :required="true" />
       </div>
 
       <div class="form-groupOne">
-      <AllLabel id="name" label="Nom" v-model="name" :required="true" />
-      <AllLabel id="nameBirth" label="Nom de naissance" v-model="nameBirth" :required="true" />
-      <AllLabel id="firstName" label="Prénom" v-model="firstName" :required="true" />
-    </div>
+        <AllLabel id="birthdate" label="Date de naissance" v-model="birthdate" inputType="date" required />
+          <AllLabel id="depNumber" label="Lieu de naissance (dpt et ville)" v-model="depNumber" inputType="number"
+            required />
+          <AllLabel id="cityBirth" label="Ville de naissance" v-model="cityBirth" inputType="text" required />
 
-    </div>
-
-    <div class="groupOne">
-      <div class="form-groupOne">
-        <label for="birthdate">Date de naissance</label>
-        <input type="date" id="birthdate" v-model="birthdate" required />
-      </div>
-
-      <div class="form-groupOne">
-        <label for="depNumber">Lieu de naissance (dpt et ville)</label>
-        <input type="number" class="two" id="depNumber" v-model="depNumber" required min="1" max="100" step="1" @input="validateNumber" />
-        <input type="text" class="one" id="cityBirth" v-model="cityBirth" required />
-      </div>
-
-      <div class="form-groupOne">
-        <label for="job">Profession</label>
-        <select id="job" v-model="job" required>
-          <option value="Fonctionnaire">Fonctionnaire</option>
-          <option value="Policier">Policier</option>
-          <option value="Pompier">Pompier</option>
-          <option value="Travailleur social">Travailleur social</option>
-          <option value="Cadre">Cadre</option>
-          <option value="Employé">Employé</option>
-          <option value="Technicien">Technicien</option>
-          <option value="Ouvrier">Ouvrier</option>
-          <option value="Entrepreneur">Entrepreneur</option>
-          <option value="Freelance">Freelance</option>
-          <option value="Artisan">Artisan</option>
-          <option value="Médecin">Médecin</option>
-          <option value="Infirmier">Infirmier</option>
-          <option value="Pharmacien">Pharmacien</option>
-          <option value="Thérapeuthe">Thérapeuthe</option>
-          <option value="Enseignant">Enseignant</option>
-          <option value="Educateur">Educateur</option>
-          <option value="Développeur">Développeur</option>
-          <option value="Ingénieur en informatique">Ingénieur en informatique</option>
-          <option value="Analyste">Analyste</option>
-          <option value="Technicien informatique">Technicien informatique</option>
-          <option value="Assistant administratif">Assistant administratif</option>
-          <option value="Technicien de maintenance">Technicien de maintenance</option>
-          <option value="Journaliste">Journaliste</option>
-          <option value="Vendeur">Vendeur</option>
-          <option value="Artiste">Artiste</option>
-          <option value="Serveur">Serveur</option>
-          <option value="Coiffeur">Coiffeur</option>
-          <option value="Etudiant">Etudiant</option>
-          <option value="Retraité">Retraité</option>
-          <option value="Sans profession">Sans profession</option>
-          <option value="Chômeur">Chômeur</option>
-        </select>
+        <div class="form-groupOne">
+          <label for="job">Profession</label>
+          <select id="job" v-model="job" required>
+            <option value="Fonctionnaire">Fonctionnaire</option>
+            <option value="Policier">Policier</option>
+            <option value="Pompier">Pompier</option>
+            <option value="Travailleur social">Travailleur social</option>
+            <option value="Cadre">Cadre</option>
+            <option value="Employé">Employé</option>
+            <option value="Technicien">Technicien</option>
+            <option value="Ouvrier">Ouvrier</option>
+            <option value="Entrepreneur">Entrepreneur</option>
+            <option value="Freelance">Freelance</option>
+            <option value="Artisan">Artisan</option>
+            <option value="Médecin">Médecin</option>
+            <option value="Infirmier">Infirmier</option>
+            <option value="Pharmacien">Pharmacien</option>
+            <option value="Thérapeuthe">Thérapeuthe</option>
+            <option value="Enseignant">Enseignant</option>
+            <option value="Educateur">Educateur</option>
+            <option value="Développeur">Développeur</option>
+            <option value="Ingénieur en informatique">Ingénieur en informatique</option>
+            <option value="Analyste">Analyste</option>
+            <option value="Technicien informatique">Technicien informatique</option>
+            <option value="Assistant administratif">Assistant administratif</option>
+            <option value="Technicien de maintenance">Technicien de maintenance</option>
+            <option value="Journaliste">Journaliste</option>
+            <option value="Vendeur">Vendeur</option>
+            <option value="Artiste">Artiste</option>
+            <option value="Serveur">Serveur</option>
+            <option value="Coiffeur">Coiffeur</option>
+            <option value="Etudiant">Etudiant</option>
+            <option value="Retraité">Retraité</option>
+            <option value="Sans profession">Sans profession</option>
+            <option value="Chômeur">Chômeur</option>
+          </select>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div :class="mesClasses">
-    <div class="form-groupOne">
-
-      <div class="form-group">
-        <label for="situation">Situation familiale</label>
-        <select id="situation" v-model="situation" required>
-          <option value="célibataire">Célibataire</option>
-          <option value="concubinage">Concubinage</option>
-          <option value="pacs">Pacsé(e)</option>
-          <option value="marié">Marié(e)</option>
-          <option value="Divorcé">Divorcé(e)</option>
-          <option value="Veuf">Veuf(e)</option>
-        </select>
-      </div>
-
+    <div :class="mesClasses">
       <div class="form-groupOne">
-        <label for="children">Nombre d'enfants</label>
-        <input type="number" class="two" id="children" v-model="children" required />
+        <div class="form-groupOne">
+          <label for="situation">Situation familiale</label>
+          <select id="situation" v-model="situation" required>
+            <option value="célibataire">Célibataire</option>
+            <option value="concubinage">Concubinage</option>
+            <option value="pacs">Pacsé(e)</option>
+            <option value="marié">Marié(e)</option>
+            <option value="Divorcé">Divorcé(e)</option>
+            <option value="Veuf">Veuf(e)</option>
+          </select>
+        </div>
+
+        <AllLabel id="children" label="Nombre d'enfants" v-model="children" inputType="number" required />
         <p>(à charge, mineurs)</p>
       </div>
-    </div>
-
-    <div class="form-groupOne">
-
-      <div class="form-group">
-        <label for="city">Secteur</label>
-        <input type="text" id="city" v-model="city" required />
-      </div>
-
-      <div class="checkbox-group">
-        <input type="checkbox" id="suspendu" v-model="suspendu" @change="uncheckOthers('suspendu')"> <!-- écouteur d'événements qui déclenche la méthode uncheckOthers chaque fois que la case est cochée ou décochée -->
-        <label for="suspendu">Suspendu</label>
-
-        <input type="checkbox" id="a-suspendre" v-model="aSuspendre" @change="uncheckOthers('aSuspendre')">
-        <label for="a-suspendre">A suspendre</label>
-
-        <input type="checkbox" id="mensualite" v-model="mensualise" @change="uncheckOthers('mensualise')">
-        <label for="mensualisé">Mensualisé</label>
-    </div>
-  </div>
-
-  <div class="form-groupOne">
-
-      <div class="form-group">
-        <label for="phone">Numéro de téléphone</label>
-        <input type="tel" id="phone" v-model="phone" required />
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" id="email" v-model="email" required />
-      </div>
-    </div>
 
       <div class="form-groupOne">
+        <AllLabel id="city" label="Secteur" v-model="city" inputType="text" required />
 
-      <div class="form-groupOne">
-        <label for="arrival">Date d'arrivée</label>
-        <input type="date" id="arrival" v-model="arrival" required />
+        <div class="form-groupOne">
+          <!-- @change est un écouteur d'événements qui déclenche la méthode uncheckOthers chaque fois que la case est cochée ou décochée -->
+          <input type="checkbox" id="suspendu" v-model="suspendu" @change="uncheckOthers('suspendu')">
+          <label for="suspendu">Suspendu</label>
+          <input type="checkbox" id="a-suspendre" v-model="aSuspendre" @change="uncheckOthers('aSuspendre')">
+          <label for="a-suspendre">A suspendre</label>
+          <input type="checkbox" id="mensualite" v-model="mensualise" @change="uncheckOthers('mensualise')">
+          <label for="mensualisé">Mensualisé</label>
+        </div>
       </div>
 
       <div class="form-groupOne">
-        <label for="departure">Date de départ</label>
-        <input type="date" id="departure" v-model="departure" required />
+        <AllLabel id="phone" label="Numéro de téléphone" v-model="phone" inputType="tel" required />
+        <AllLabel id="email" label="Email" v-model="email" inputType="email" required />
       </div>
-    </div>
+
+      <div class="form-groupOne">
+        <AllLabel id="arrival" label="Date d'arrivée" v-model="arrival" inputType="date" required />
+        <AllLabel id="departure" label="Date de départ" v-model="departure" inputType="date" required />
+      </div>
 
       <!-- Bouton pour soumettre le formulaire -->
       <div class="formButton">
-      <button type="submit">S'inscrire</button>
+        <button type="submit">S'inscrire</button>
       </div>
     </div>
 
-    </form>
+  </form>
 </template>
 
 <script>
@@ -233,15 +200,9 @@ export default {
 </script>
 
 <style scoped>
-
-#civility {
-  width: 5rem;
-  height: 1rem;
+div:nth-child(2)>div.form-groupOne>div.form-groupOne {
+  margin-left: 1rem;
 }
-
-  div:nth-child(2) > div.form-groupOne > div.form-groupOne {
-    margin-left: 1rem;
-  }
 </style>
 
 <!-- LEXIQUE -->
