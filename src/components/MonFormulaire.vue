@@ -15,19 +15,10 @@
       </div>
 
       <div class="form-groupOne">
-        <label for="name">Nom</label>
-        <input class="one" type="text" id="name" v-model="name" required />
-      </div>
-
-      <div class="form-groupOne">
-        <label for="nameBirth">Nom de naissance</label>
-        <input class="one" type="text" id="nameBirth" v-model="nameBirth" required />
-      </div>
-
-      <div class="form-groupOne">
-        <label for="firtName">Prénom</label>
-        <input class="one" type="text" id="firstName" v-model="firstName" required />
-      </div>
+      <AllLabel id="name" label="Nom" v-model="name" :required="true" />
+      <AllLabel id="nameBirth" label="Nom de naissance" v-model="nameBirth" :required="true" />
+      <AllLabel id="firstName" label="Prénom" v-model="firstName" :required="true" />
+    </div>
 
     </div>
 
@@ -160,8 +151,13 @@
 </template>
 
 <script>
+import AllLabel from './AllLabel.vue'
+
 export default {
-  name: 'MonFormulaire', // Nom du composant
+  name: 'MonFormulaire',
+  components: {
+    AllLabel // Déclaration du composant local
+  }, // Nom du composant
   data () {
     // Fonction qui retourne un objet contenant les données de l'état du composant
     return {
