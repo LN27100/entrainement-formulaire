@@ -2,7 +2,7 @@
   <div class="hello">
     <h4>Description du projet :</h4>
     <p>
-      Dans cette notice vous trouverez toutes les informations nécessaire concernant l'objectif de la mise en place d'un formulaire et pourquoi avoir fais le choix d'utiliser le framework Vue.js</p>
+      Dans cette description vous trouverez toutes les informations nécessaire concernant l'objectif de la mise en place d'un formulaire et pourquoi avoir fais le choix d'utiliser le framework Vue.js</p>
     <ul>
       <li>Pourquoi un formulaire?</li>
       <p>Le formulaire est important dans tous domaines administratifs et utiles dan de nombreux cas donc il est
