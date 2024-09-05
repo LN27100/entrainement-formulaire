@@ -145,7 +145,6 @@ export default {
     }
   },
   methods: {
-    // Objet qui contient les méthodes du composant
     handleSubmit () {
       // Fonction appelée lors de la soumission du formulaire
       // Affiche des données du formulaire dans la console

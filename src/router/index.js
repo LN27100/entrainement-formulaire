@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import FormulaireTest from '../views/FormulaireTest.vue'
-import NoticeForm from '../views/NoticeForm.vue'
+import DescriptionForm from '../views/DescriptionForm.vue'
 
 const routes = [
   {
@@ -15,9 +15,9 @@ const routes = [
     component: FormulaireTest
   },
   {
-    path: '/notice',
-    name: 'NoticeForm',
-    component: NoticeForm
+    path: '/descript',
+    name: 'DescriptionForm',
+    component: DescriptionForm
   }
 ]
 

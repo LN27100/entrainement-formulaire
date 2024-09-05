@@ -3,20 +3,20 @@
       <h1>Présentation</h1>
 
         <PresentationGlobale />
-        <NoticeOne />
+        <DescriptionOne />
 
     </div>
   </template>
 
 <script>
-import NoticeOne from '@/components/NoticeOne.vue'
+import DescriptionOne from '@/components/DescriptionOne.vue'
 import PresentationGlobale from '@/components/PresentationGlobale.vue'
 
 export default {
   name: 'NoticeForm',
   components: {
     PresentationGlobale,
-    NoticeOne
+    DescriptionOne
   }
 }
 </script>
