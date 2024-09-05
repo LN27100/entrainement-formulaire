@@ -1,6 +1,5 @@
 <template>
     <div class="hello">
-      <h1>Présentation :</h1>
       <p>Ce site a été créé dans le but de s'entraîner à l'utilisation optimisée de vue.js et de ses composants.</p>
       <h4>Vous y trouverez :</h4>
       <ul>
@@ -18,10 +17,6 @@ export default {
 }
 </script>
 
-  <style scoped lang="scss">
-
-  li {
-    margin: 0 10px;
-  }
+  <style scoped>
 
   </style>

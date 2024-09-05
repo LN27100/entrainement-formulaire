@@ -5,7 +5,7 @@
     margin: auto;
     background-color: #d5f3c8;
     border-radius: 5px;
-    padding: 1rem;
+    padding: 0.5rem;
     width: 100%;
     margin-bottom: 1rem;
   }
@@ -37,6 +37,7 @@
     padding: 0.5rem;
     font-size: 0.8rem;
     height: 1rem;
+    width: 8rem;
   }
 
   input[type="date"] {
@@ -91,8 +92,6 @@
 
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
   }
 
@@ -112,3 +111,8 @@
       }
     }
   }
+
+  h4 {
+    text-decoration: underline;
+  }
+  

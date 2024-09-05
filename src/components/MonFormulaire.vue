@@ -133,7 +133,7 @@ export default {
       firstName: '',
       situation: '',
       birthdate: '',
-      depNumber: null, // Stocke la valeur du champ 'depNumber'
+      depNumber: null,
       cityBirth: '',
       city: '',
       suspendu: false,
@@ -184,14 +184,6 @@ export default {
       }
     }
   },
-  // Valide que la valeur entrée est bien comprise entre 1 et 100
-  validateNumber () {
-    if (this.depNumber < 1) {
-      this.depNumber = 1 // Fixe la valeur minimale à 1 si l'utilisateur entre un chiffre en dessous
-    } else if (this.depNumber > 100) {
-      this.depNumber = 100 // Fixe la valeur maximale à 100 si l'utilisateur entre un chiffre au-dessus
-    }
-  },
   props: {
     // Définition des propriétés (props) que ce composant accepte
     mesClasses: { type: String, default: 'class1' }
@@ -202,6 +194,10 @@ export default {
 <style scoped>
 div:nth-child(2)>div.form-groupOne>div.form-groupOne {
   margin-left: 1rem;
+}
+
+#job {
+  width: 8rem;
 }
 </style>
 
