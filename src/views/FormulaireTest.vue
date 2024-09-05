@@ -19,6 +19,6 @@ export default {
 <style>
 .FormIn {
   margin: auto;
-  padding: 1em;
-}
+  padding: 0 0.8rem;
+  }
 </style>

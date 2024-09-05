@@ -2,7 +2,6 @@
   /* Nesting (Imbrication) : SCSS permet d'imbriquer les règles CSS à l'intérieur de sélecteurs, ce qui correspond à la hiérarchie HTML et rend le code plus lisible. */
 
   .class1 {
-    margin: auto;
     background-color: #d5f3c8;
     border-radius: 5px;
     padding: 0.5rem;
@@ -48,10 +47,9 @@
 
   .form-groupOne {
     display: flex;
-    margin-bottom: 1rem;
     margin-right: 1rem;
     align-items: center;
-  
+
   }
   
   .one {
@@ -96,11 +94,13 @@
   }
 
   h1 {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
     text-align: center;
   }
   
   nav {
-    padding: 30px;
+    padding: 1rem 2rem 2rem 2rem;
     text-align: center;
     a {
       font-weight: bold;

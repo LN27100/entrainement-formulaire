@@ -93,7 +93,7 @@
           <label for="suspendu">Suspendu</label>
           <input type="checkbox" id="a-suspendre" v-model="aSuspendre" @change="uncheckOthers('aSuspendre')">
           <label for="a-suspendre">A suspendre</label>
-          <input type="checkbox" id="mensualite" v-model="mensualise" @change="uncheckOthers('mensualise')">
+          <input type="checkbox" id="mensualisé" v-model="mensualise" @change="uncheckOthers('mensualise')">
           <label for="mensualisé">Mensualisé</label>
         </div>
       </div>
@@ -108,12 +108,11 @@
         <AllLabel id="departure" label="Date de départ" v-model="departure" inputType="date" required />
       </div>
 
-      <!-- Bouton pour soumettre le formulaire -->
-      <div class="formButton">
+    </div>
+ <!-- Bouton pour soumettre le formulaire -->
+ <div class="formButton">
         <button type="submit">S'inscrire</button>
       </div>
-    </div>
-
   </form>
 </template>
 
@@ -199,6 +198,7 @@ div:nth-child(2)>div.form-groupOne>div.form-groupOne {
 #job {
   width: 8rem;
 }
+
 </style>
 
 <!-- LEXIQUE -->
