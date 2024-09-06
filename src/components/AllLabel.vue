@@ -7,7 +7,7 @@
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       :required="required"
-      :class="{'input-number': inputType === 'number'}"
+      :class="{'input-number': inputType === 'number', 'input-email': inputType === 'email'}"
     />
   </div>
 </template>
@@ -43,6 +43,11 @@ export default {
 .input-number {
   width: 3.5rem;
 }
+
+.input-email {
+    width: 15rem;
+    margin-right: 1rem;
+  }
 </style>
 
 <!--

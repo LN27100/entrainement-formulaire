@@ -4,7 +4,7 @@
   .class1 {
     background-color: #d5f3c8;
     border-radius: 5px;
-    padding: 0.5rem;
+    padding: 1rem;
     width: 100%;
     margin-bottom: 1rem;
   }
@@ -17,12 +17,12 @@
     color: #2c3e50;
     font-size: 0.8rem;
     height: 1rem;
+    margin-right: 1rem;
   }
 
   label {
     font-size: 0.8rem;
     margin-right: 0.5rem;
-    margin-left: 0.5rem;
     color: #2c3e50;
   }
 
@@ -37,6 +37,7 @@
     font-size: 0.8rem;
     height: 1rem;
     width: 8rem;
+    margin-right: 1rem;
   }
 
   input[type="date"] {
@@ -47,9 +48,6 @@
 
   .form-groupOne {
     display: flex;
-    margin-right: 1rem;
-    align-items: center;
-
   }
   
   .one {
@@ -57,8 +55,8 @@
   }
 
   .two {
-    width: 3.5rem;
-    margin-right: 0.2rem;
+    width: 4rem;
+    margin-right: 1rem;
   }
   
   .checkbox-group label {

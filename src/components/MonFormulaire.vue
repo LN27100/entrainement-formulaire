@@ -6,7 +6,6 @@
 
       <div class="form-groupOne">
         <div class="form-groupOne">
-          <label for="civility">Civilité</label>
           <!-- v-model lie la sélection à la donnée civility -->
           <select class="two" id="civility" v-model="civility" required>
             <option value="M">Monsieur</option>
@@ -190,9 +189,6 @@ export default {
 </script>
 
 <style scoped>
-div:nth-child(2)>div.form-groupOne>div.form-groupOne {
-  margin-left: 1rem;
-}
 
 #job {
   width: 8rem;
