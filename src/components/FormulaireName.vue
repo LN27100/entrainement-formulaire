@@ -24,7 +24,7 @@
 import AllLabel from './AllLabel.vue'
 
 export default {
-  name: 'MonFormulaire',
+  name: 'FormulaireName',
   components: {
     AllLabel // Déclaration du composant local
   }, // Nom du composant
