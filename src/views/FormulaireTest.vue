@@ -42,3 +42,5 @@ export default {
   padding: 0 0.8rem;
   }
 </style>
+
+<!-- Le @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire. Cela permet de gérer le traitement du formulaire dans la méthode handleSubmit() du composant. -->

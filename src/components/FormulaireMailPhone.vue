@@ -24,9 +24,8 @@ export default {
     // Fonction qui retourne un objet contenant les données de l'état du composant
     return {
       phone: '',
-      email: '',
-      arrival: '',
-      departure: ''
+      email: ''
+
     }
   },
   methods: {
@@ -38,8 +37,6 @@ export default {
       // Réinitialisation des champs du formulaire
       this.phone = ''
       this.email = ''
-      this.arrival = ''
-      this.departure = ''
     }
   },
   props: {
@@ -60,4 +57,3 @@ export default {
 <!-- LEXIQUE -->
 <!-- Le v-model simplifie la gestion de l'état du formulaire en liant directement les entrées de l'utilisateur aux données du composant, permettant ainsi des mises à jour dynamiques et réactives. -->
 <!-- La v-model est utilisé dans les champs input, textarea et select. -->
-<!-- Le @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire. Cela permet de gérer le traitement du formulaire dans la méthode handleSubmit() du composant. -->

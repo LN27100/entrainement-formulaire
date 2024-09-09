@@ -1,31 +1,30 @@
-  /* SCSS commun à tous le projet */
-  /* Nesting (Imbrication) : SCSS permet d'imbriquer les règles CSS à l'intérieur de sélecteurs, ce qui correspond à la hiérarchie HTML et rend le code plus lisible. */
-
+  /* mesClasses */
   .class1 {
     background-color: #d5f3c8;
     padding: 0.5rem;
     width: 100%;
   }
 
-  option {
-    color:#2c3e50;
+  /* CSS général à toutes les pages */
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    color: #2c3e50;
   }
 
-  select {
-    color: #2c3e50;
-    font-size: 0.8rem;
-    height: 1rem;
-    margin-right: 1rem;
+  h1 {
+    color: #193a5c;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    text-align: center;
   }
 
-  label {
-    font-size: 0.8rem;
-    margin-right: 0.5rem;
-    color: #2c3e50;
+  h4 {
+    color: #42b983;
+    text-decoration: underline;
   }
 
   p {
-    font-size: 0.8rem; 
+    font-size: 0.8rem;
     color: #2c3e50;
   }
 
@@ -42,12 +41,40 @@
     color: #646a70;
     font-size: 0.8rem;
     width: 7rem;
-    }
+  }
+
+  .checkbox-group label {
+    white-space: nowrap;
+    /* Empêche le texte des labels de se briser sur plusieurs lignes */
+  }
+
+  input[type=checkbox],
+  input[type=radio] {
+    width: min-content;
+    margin-right: 0.5rem;
+  }
+
+  label {
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+    color: #2c3e50;
+  }
+
+  select {
+    color: #2c3e50;
+    font-size: 0.8rem;
+    height: 1rem;
+    margin-right: 1rem;
+  }
+
+  option {
+    color: #2c3e50;
+  }
 
   .form-groupOne {
     display: flex;
   }
-  
+
   .one {
     width: 10rem;
   }
@@ -56,15 +83,7 @@
     width: 4rem;
     margin-right: 1rem;
   }
-  
-  .checkbox-group label {
-      white-space: nowrap; /* Empêche le texte des labels de se briser sur plusieurs lignes */
-  }
 
-  input[type=checkbox], input[type=radio] {
-    width: min-content;
-    margin-right: 0.5rem;
-}
 
   .formButton {
     text-align: center;
@@ -85,21 +104,13 @@
     background-color: #57626e;
   }
 
-  #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    color: #2c3e50;
-  }
+  /* SCSS commun à tous le projet */
+  /* Nesting (Imbrication) : SCSS permet d'imbriquer les règles CSS à l'intérieur de sélecteurs, ce qui correspond à la hiérarchie HTML et rend le code plus lisible. */
 
-  h1 {
-    color: #193a5c;
-    margin-top: 1rem;
-    margin-bottom: 3rem;
-    text-align: center;
-  }
-  
   nav {
     padding: 1rem 2rem 2rem 2rem;
     text-align: center;
+
     a {
       font-weight: bold;
       color: #2c3e50;
@@ -109,9 +120,3 @@
       }
     }
   }
-
-  h4 {
-    color: #42b983;
-    text-decoration: underline;
-  }
-  

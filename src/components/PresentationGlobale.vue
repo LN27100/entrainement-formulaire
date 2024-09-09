@@ -15,7 +15,3 @@ export default {
   name: 'PresentationGlobale'
 }
 </script>
-
-  <style scoped>
-
-  </style>
