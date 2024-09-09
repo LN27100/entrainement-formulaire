@@ -1,19 +1,23 @@
 <template>
   <div class="FormIn">
     <h1>Formulaire d'inscription</h1>
-     <!-- @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire et appelle la méthode handleSubmit -->
-  <form @submit.prevent="handleSubmit">
-    <FormulaireName />
-    <FormulaireBirthJob />
-    <FormulaireSituation />
-    <FormulaireMailPhone />
-    <FormulaireDate />
+    <!-- @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire et appelle la méthode handleSubmit -->
+    <form @submit.prevent="handleSubmit">
+      <FormulaireName />
+      <FormulaireBirthJob />
+      <FormulaireSituation />
+      <FormulaireMailPhone />
+      <FormulaireDate />
       <!-- Bouton pour soumettre le formulaire -->
-    <div class="formButton">
+      <div class="formButton">
         <button type="submit">S'inscrire</button>
       </div>
-  </form>
+    </form>
 
+    <!-- Afficher le message de confirmation après soumission -->
+    <p v-if="formSubmitted" class="confirmation-message">
+      Votre inscription a bien été prise en compte. Merci !
+    </p>
   </div>
 </template>
 
@@ -32,6 +36,25 @@ export default {
     FormulaireBirthJob,
     FormulaireSituation,
     FormulaireDate
+  },
+  data () {
+    return {
+      formSubmitted: false // Variable pour suivre l'état de la soumission du formulaire
+    }
+  },
+  methods: {
+    handleSubmit () {
+      // Logique de soumission du formulaire
+      // Vous pouvez ajouter ici des vérifications ou des envois à un serveur si nécessaire
+
+      // Marque le formulaire comme soumis
+      this.formSubmitted = true
+
+      // Attendre 3 secondes avant de rediriger vers la page d'accueil
+      setTimeout(() => {
+        this.$router.push('/') // Redirige vers la page d'accueil après 3 secondes
+      }, 3000)
+    }
   }
 }
 </script>
@@ -40,7 +63,15 @@ export default {
 .FormIn {
   margin: auto;
   padding: 0 0.8rem;
-  }
-</style>
+}
 
-<!-- Le @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire. Cela permet de gérer le traitement du formulaire dans la méthode handleSubmit() du composant. -->
+.formButton {
+  margin-top: 1rem;
+}
+
+.confirmation-message {
+  margin-top: 1rem;
+  color: green; /* Couleur pour indiquer le succès */
+  font-weight: bold;
+}
+</style>

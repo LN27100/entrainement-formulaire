@@ -5,7 +5,7 @@
 
         <div class="form-groupOne">
           <AllLabel id="arrival" label="Date d'arrivée" v-model="arrival" inputType="date" required />
-          <AllLabel id="departure" label="Date de départ" v-model="departure" inputType="date" required />
+          <AllLabel id="departure" label="Date de départ" v-model="departure" inputType="date" />
         </div>
 
       </div>
