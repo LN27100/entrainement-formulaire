@@ -1,23 +1,7 @@
 <template>
   <!-- Conteneur principal pour le formulaire -->
-  <!-- @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire et appelle la méthode handleSubmit -->
-  <form @submit.prevent="handleSubmit">
+
     <div :class="mesClasses">
-
-      <div class="form-groupOne">
-        <div class="form-groupOne">
-          <!-- v-model lie la sélection à la donnée civility -->
-          <select class="two" id="civility" v-model="civility" required>
-            <option value="M">Monsieur</option>
-            <option value="Mme">Madame</option>
-          </select>
-        </div>
-
-          <!-- Composant qui encapsule le champ de formulaire avec son label et intègre ttes les props -->
-          <AllLabel id="name" label="Nom" v-model="name" :required="true" />
-          <AllLabel id="nameBirth" label="Nom de naissance" v-model="nameBirth" :required="true" />
-          <AllLabel id="firstName" label="Prénom" v-model="firstName" :required="true" />
-      </div>
 
       <div class="form-groupOne">
         <AllLabel id="birthdate" label="Date de naissance" v-model="birthdate" inputType="date" required />
@@ -112,7 +96,6 @@
  <div class="formButton">
         <button type="submit">S'inscrire</button>
       </div>
-  </form>
 </template>
 
 <script>
@@ -126,9 +109,6 @@ export default {
   data () {
     // Fonction qui retourne un objet contenant les données de l'état du composant
     return {
-      civility: '',
-      name: '',
-      firstName: '',
       situation: '',
       birthdate: '',
       depNumber: null,
@@ -147,13 +127,9 @@ export default {
     handleSubmit () {
       // Fonction appelée lors de la soumission du formulaire
       // Affiche des données du formulaire dans la console
-      console.log('Nom:', this.name)
       console.log('Email:', this.email)
 
       // Réinitialisation des champs du formulaire
-      this.civility = ''
-      this.name = ''
-      this.firstName = ''
       this.situation = ''
       this.birthdate = ''
       this.cityBirth = ''
