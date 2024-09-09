@@ -33,6 +33,7 @@ export default {
     return {
       civility: '',
       name: '',
+      nameBirth: '',
       firstName: ''
     }
   },
@@ -45,6 +46,7 @@ export default {
       // Réinitialisation des champs du formulaire
       this.civility = ''
       this.name = ''
+      this.nameBirth = ''
       this.firstName = ''
     }
   },

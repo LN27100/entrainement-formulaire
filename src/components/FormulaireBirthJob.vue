@@ -1,7 +1,7 @@
 <template>
     <!-- Conteneur principal pour le formulaire -->
 
-      <div class="class1 class2" >
+    <div :class="[mesClasses, 'class2']">
 
         <div class="form-groupOne">
           <AllLabel id="birthdate" label="Date de naissance" v-model="birthdate" inputType="date" required />
@@ -11,7 +11,7 @@
 
           <div class="form-groupOne">
             <label for="job">Profession</label>
-            <select id="job" v-model="job" required>
+            <select class="job" v-model="job" required>
               <option value="Fonctionnaire">Fonctionnaire</option>
               <option value="Policier">Policier</option>
               <option value="Pompier">Pompier</option>
@@ -75,9 +75,8 @@ export default {
       // Réinitialisation des champs du formulaire
       this.birthdate = ''
       this.cityBirth = ''
-      this.city = ''
       this.job = ''
-      this.depNumber = ''
+      this.depNumber = null
     }
   },
   props: {
@@ -89,7 +88,7 @@ export default {
 
 <style scoped>
 
-#job {
+.job {
   width: 8rem;
 }
 

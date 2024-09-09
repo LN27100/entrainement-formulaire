@@ -3,8 +3,7 @@
 
   .class1 {
     background-color: #d5f3c8;
-    border-radius: 5px;
-    padding: 1rem;
+    padding: 0.5rem;
     width: 100%;
   }
 
@@ -69,6 +68,7 @@
 
   .formButton {
     text-align: center;
+    margin-top: 1rem;
   }
 
   button {
