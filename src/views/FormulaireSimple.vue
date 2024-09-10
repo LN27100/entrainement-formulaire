@@ -5,7 +5,7 @@
       </p>
 
     <div class="FormIn">
-      <h1>Formulaire d'inscription</h1>
+      <h1>Formulaire simplifié</h1>
       <!-- @submit.prevent empêche le rechargement de la page lors de la soumission du formulaire et appelle la méthode handleSubmit -->
       <form @submit.prevent="handleSubmit">
         <FormulaireName />
